@@ -1,19 +1,19 @@
-html {
-  height: 100%;
+* {
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   justify-content: stretch;
-  height: 100%;
+  min-height: 100vh;
+  padding: 40px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   color: #335C62;
   background-color: #f5f5f5;
 }
 
-ul {
-  padding: 40px;
+ul {  
   overflow: hidden;
 }
 
@@ -50,4 +50,35 @@ a {
 
 li:hover a {
   opacity: 1;
+}
+
+label {
+  display: flex;
+  min-width: 320px;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+input[type=submit] {
+  width: 235px;
+  height: 45px;
+  border: 0;
+  border-radius: 16px;
+  font-size: 24px;
+  color: #ffffff;
+  letter-spacing: 0.04em;  
+  background-color: #335C62; 
+  opacity: .75;
+  transition: 0.3s;   
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  opacity: 1;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+input[type=submit]:active {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
 }
