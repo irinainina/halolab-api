@@ -1,0 +1,19 @@
+{
+  "name": "halolab-api",
+  "version": "1.0.0",
+  "description": "halolab-api",
+  "repository": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "engines": {
+    "node": "14.17.3"
+  }
+}
