@@ -10,6 +10,17 @@ app.use(express.static('styles'));
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
+const allowlist = ['https://irinainina.github.io/halolab/', 'https://form-api-test.netlify.app/']
+const corsOptionsDelegate = function (req, callback) {
+  let corsOptions;
+  if (allowlist.indexOf(req.header('Origin')) !== -1) {
+    corsOptions = { origin: true } 
+  } else {
+    corsOptions = { origin: false } 
+  }
+  callback(null, corsOptions) 
+}
+
 const PORT = process.env.PORT || 3000;
 const db = 'mongodb+srv://admin:123@cluster0.gdcfw.mongodb.net/halolab-test-api?retryWrites=true&w=majority';
 
@@ -50,7 +61,7 @@ app.get('/add-user', (req, res) => {
   res.sendFile(createPath('add-user'));
 });
 
-app.post('/add-user', (req, res) => {
+app.post('/add-user', cors(corsOptionsDelegate), (req, res) => {
   const { name, number } = req.body;
   const user = new User({ name, number });
   user
