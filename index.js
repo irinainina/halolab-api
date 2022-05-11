@@ -57,7 +57,7 @@ app.get('/add-user', (req, res) => {
   res.sendFile(createPath('add-user'));
 });
 
-app.post('/add-user', (req, res) => {
+app.post('/add-user', cors(), (req, res) => {
   const { name, number } = req.body;
   const user = new User({ name, number });
   user
