@@ -10,13 +10,6 @@ app.use(cors());
 app.use(express.static('styles'));
 app.use(express.urlencoded({ extended: false }));
 
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-  next();
-});
-
-
 const PORT = process.env.PORT || 3000;
 const db = 'mongodb+srv://admin:123@cluster0.gdcfw.mongodb.net/halolab-test-api?retryWrites=true&w=majority';
 
